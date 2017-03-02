@@ -129,7 +129,8 @@ inline cv::Mat subwindow(const cv::Mat &in, const cv::Rect & window, int borderT
 
 inline cv::Mat getGrayImage(cv::Mat img)
 {
-    cv::cvtColor(img, img, CV_BGR2GRAY);
+	if (img.channels() == 3)
+		cv::cvtColor(img, img, CV_BGR2GRAY);
     img.convertTo(img, CV_32F, 1 / 255.f);
     return img;
 }
