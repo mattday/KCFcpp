@@ -136,7 +136,7 @@ if (_hogfeatures) {    // HOG
         cell_size = 1;
 
         if (_labfeatures) {
-            printf("Lab features are only used with HOG features.\n");
+            cerr << "KCFcpp configuration invalid: Lab features are only used with HOG features.\n";
             _labfeatures = false;
         }
     }
@@ -147,7 +147,7 @@ if (_hogfeatures) {    // HOG
         scale_step = 1.05;
         scale_weight = 0.95;
         if (!_fixed_window) {
-            printf("Multiscale does not support non-fixed window.\n");
+            cerr << "KCFcpp configuration invalid: Multiscale does not support non-fixed window.\n";
             _fixed_window = true;
         }
     }
